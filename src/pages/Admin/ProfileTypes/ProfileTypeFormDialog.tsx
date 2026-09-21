@@ -23,7 +23,7 @@ interface IProps {
   onOpenChange: (open: boolean) => void;
 }
 
-const emptyForm = { name: '', description: '', imageUrl: '' };
+const emptyForm = { name: '', description: '', mapPinName: '', imageUrl: '' };
 
 export function ProfileTypeFormDialog({ open, profileType, onOpenChange }: IProps) {
   const [form, setForm] = useState(emptyForm);
@@ -39,6 +39,7 @@ export function ProfileTypeFormDialog({ open, profileType, onOpenChange }: IProp
           ? {
               name: profileType.name ?? '',
               description: profileType.description ?? '',
+              mapPinName: profileType.mapPinName ?? '',
               imageUrl: profileType.imageUrl ?? '',
             }
           : emptyForm,
@@ -58,6 +59,7 @@ export function ProfileTypeFormDialog({ open, profileType, onOpenChange }: IProp
     const data = {
       name: form.name.trim(),
       description: form.description.trim() || null,
+      mapPinName: form.mapPinName.trim() || null,
       imageUrl: form.imageUrl.trim() || null,
     };
 
@@ -105,6 +107,16 @@ export function ProfileTypeFormDialog({ open, profileType, onOpenChange }: IProp
                 id="profile-type-description"
                 value={form.description}
                 onChange={(event) => setForm((f) => ({ ...f, description: event.target.value }))}
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="profile-type-map-pin-name">Map Pin Name</Label>
+              <Input
+                id="profile-type-map-pin-name"
+                value={form.mapPinName}
+                onChange={(event) => setForm((f) => ({ ...f, name: event.target.value }))}
+                required
               />
             </div>
 
