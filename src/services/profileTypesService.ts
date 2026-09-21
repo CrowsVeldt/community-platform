@@ -24,7 +24,7 @@ export interface ProfileTypeFormData {
 }
 
 const createProfileType = async (form: ProfileTypeFormData) => {
-  const response = await fetch('/api/profile-type', {
+  const response = await fetch('/api/profile-types', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(form),
@@ -39,7 +39,7 @@ const createProfileType = async (form: ProfileTypeFormData) => {
 };
 
 const updateProfileType = async (id: number, form: ProfileTypeFormData) => {
-  const response = await fetch(`/api/profile-type${id}`, {
+  const response = await fetch(`/api/profile-types/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(form),
