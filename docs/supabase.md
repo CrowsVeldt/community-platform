@@ -20,7 +20,7 @@ Run `supabase status`
 Create a .env.local file at the project root (same level as .env) and fill in the keys with values from the command above:
 
 ```
-SUPABASE_API_URL=<API URL>
+SUPABASE_API_URL=<APIs - Project URL>
 SUPABASE_KEY=<Authentication Key - Publishable>
 SUPABASE_SERVICE_ROLE_KEY=<Authentication Key - Secret>
 ```
@@ -52,7 +52,7 @@ Finally, push your schema using `supabase db push`.
 To finish you should fill the .env.local file with the values from the "Data API" section of your project settings:
 
 ```
-SUPABASE_API_URL=<API URL>
+SUPABASE_API_URL=<APIs - Project URL>
 SUPABASE_KEY=<Authentication Key - Publishable>
 SUPABASE_SERVICE_ROLE_KEY=<Authentication Key - Secret>
 ```
@@ -76,7 +76,7 @@ For each test run, a new tenant_id is generated, which has a few benefits:
 
 Create a .env.local file at the packages/cypress folder
 ```
-SUPABASE_API_URL=<API URL>
+SUPABASE_API_URL=<APIs - Project URL>
 SUPABASE_KEY=<Authentication Key - Publishable>
 SUPABASE_SERVICE_ROLE_KEY=<Authentication Key - Secret>
 ```
