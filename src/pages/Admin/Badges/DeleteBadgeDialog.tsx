@@ -45,6 +45,28 @@ export function DeleteBadgeDialog({ profileBadge, onOpenChange }: IProps) {
     });
   };
 
+  const handleSoftDelete = () => {
+    if (!profileBadge) {
+      return;
+    }
+
+    setSubmitting(true);
+
+    const promise = ProfileBadgeService.softDeleteProfileBadge(profileBadge.badge.id).finally(() =>
+      setSubmitting(false),
+    );
+
+    toast.promise(promise, {
+      loading: 'Deleting badge...',
+      success: () => {
+        onOpenChange(false);
+        revalidator.revalidate();
+        return 'Badge deleted';
+      },
+      error: (error) => error.message || 'Something went wrong',
+    });
+  };
+
   return (
     <Dialog open={!!profileBadge} onOpenChange={onOpenChange}>
       <DialogContent>
@@ -59,8 +81,11 @@ export function DeleteBadgeDialog({ profileBadge, onOpenChange }: IProps) {
           <Button variant="outline" onClick={() => onOpenChange(false)} disabled={submitting}>
             Cancel
           </Button>
+          <Button variant="outline" onClick={handleSoftDelete} disabled={submitting}>
+            Soft Delete
+          </Button>
           <Button variant="destructive" onClick={handleDelete} disabled={submitting}>
-            Delete
+            Hard Delete
           </Button>
         </DialogFooter>
       </DialogContent>
