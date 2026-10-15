@@ -52,7 +52,7 @@ export function DeleteBadgeDialog({ profileBadge, onOpenChange }: IProps) {
 
     setSubmitting(true);
 
-    const promise = ProfileBadgeService.softDeleteProfileBadge(profileBadge.badge.id).finally(() =>
+    const promise = ProfileBadgeService.softDeleteProfileBadge(profileBadge.badge).finally(() =>
       setSubmitting(false),
     );
 
