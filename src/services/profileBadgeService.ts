@@ -52,7 +52,6 @@ const deleteProfileBadge = async (id: number) => {
 };
 
 const softDeleteProfileBadge = async (badge: ProfileBadge) => {
-  console.log({ ...badge, isDeleted: true });
   const response = await fetch(`/api/admin/profile-badges/${badge.id}`, {
     method: 'PUT',
     headers: { 'Content-Types': 'application/json' },
