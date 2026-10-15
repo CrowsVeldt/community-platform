@@ -57,7 +57,7 @@ export function BadgesPage({ profileBadges }: IProps) {
             const deleteError = getProfileBadgeDeleteError(badge.id, profileBadges);
 
             return (
-              <TableRow key={badge.id} style={{ color: badge.isDeleted ? 'lightgray' : '' }}>
+              <TableRow key={badge.id} style={{ color: badge.isDeleted ? 'gray' : '' }}>
                 <TableCell>
                   <Thumbnail imageUrl={badge.imageUrl} alt={badge.displayName} />
                 </TableCell>
